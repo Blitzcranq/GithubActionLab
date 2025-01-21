@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Course</title>
+    <style>
+        button {
+            padding: 0.5em 2em;
+            background-color: rebeccapurple;
+            border: 0.2em solid deeppink;
+            border-radius: 0.5em;
+            margin: 1em;
+
+            color: white;
+            font-size: 1.1em;
+        }
+
+        form div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin: 0.75em 0 0.25em;
+        }
+
+        input {
+            padding: 0.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="post">
+        <div>
+            <label for="code">Course Code:</label>
+            <input type="text" name="code" id="code" />
+        </div>
+        <div>
+            <label for="title">Course Title:</label>
+            <input type="text" name="title" id="title" />
+        </div>
+        <button type="submit" name="insert">Insert</button>
+    </form>
+</body>
+
+</html>
