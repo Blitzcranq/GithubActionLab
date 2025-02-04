@@ -3,6 +3,7 @@ const app = express();
 import path from "path";
 import { fileURLToPath } from "url";
 
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename)
 
@@ -29,8 +30,9 @@ app.get("/", (req, res) => {
 app.get("/add", (req, res) => {
     res.render("add")
 })
+
 app.post("/add", (req, res) => {
-    const { code, title } = req.body;
-    courseList.push({ code, title });
+    const { code, title } = req.body
+    courseList.push({ code, title })
     res.redirect("/")
 })
