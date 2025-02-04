@@ -4,5 +4,5 @@ test('true is true', () => {
 
 test('addition works', () => {
 	const add = (a, b) => a + b;
-	expect(add(2, 2)).toBe(5);
+	expect(add(2, 2)).toBe(4);
 });
