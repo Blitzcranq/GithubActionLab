@@ -1,0 +1,33 @@
+name: Node Deployment CD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: npm install
+      - run: npm run build
+      - name: Deploy to heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: "github-action-lab"
+          heroku_email: "vrajchauhan@trentu.ca"
+          usedocker: true
+# The above workflow file is used to deploy the application to Heroku. The workflow is triggered when a push event occurs on the main branch. The workflow uses the akhileshns/heroku-deploy action to deploy the application to Heroku. The action requires the following inputs:
+#
+# heroku_api_key: The API key for the Heroku account.
+# heroku_app_name: The name of the Heroku application.
+# heroku_email: The email address associated with the Heroku account.
+# usedocker: A boolean value that specifies whether to use Docker for the deployment.
+# The API key for the Heroku account is stored as a secret in the repository settings. The workflow uses this secret to authenticate with the Heroku API and deploy the application.
+
